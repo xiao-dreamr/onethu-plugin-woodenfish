@@ -1,0 +1,16 @@
+{
+  "id": "onethu.woodenfish",
+  "name": "电子木鱼 · 赛博真经",
+  "version": "0.1.0",
+  "kind": "js",
+  "entry": "plugin.js",
+  "author": "xiao-dreamr",
+  "repo": "https://github.com/xiao-dreamr/onethu-plugin-woodenfish",
+  "announce": true,
+  "description": "娱乐向插件：敲电子木鱼，取赛博真经。插件页大木鱼点一下功德 +1（音效+动画+飘字，上方中间显示总量），可停靠到首页一级功能区或加入 OneShot；新宿主还可在首页/OnePage 放可点击交互卡片。功德只存在本机。",
+  "permissions": [
+    "ui",
+    "storage",
+    "css"
+  ]
+}
