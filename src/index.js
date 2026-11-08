@@ -21,7 +21,7 @@ import { WOODFISH_PAGE_KEY } from "./page.js";
 const manifest = {
   id: "onethu.woodenfish",
   name: "电子木鱼 · 赛博真经",
-  version: "0.1.1",
+  version: "0.1.2",
   kind: "js",
   entry: "plugin.js",
   author: "xiao-dreamr",
@@ -33,7 +33,7 @@ const manifest = {
 };
 
 const WOODFISH_TAB_ICON =
-  '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.6 8.2c2.6-3.8 6.4-4.6 9.4-3.1 1.5.7 2.6 1.9 3.4 3.1-2.2 2.9-5.9 3.6-8.9 2.2-1.6-.7-2.9-1.6-3.9-2.2Z"/><path d="M11 3.2l1.1 1.6"/><circle cx="4.6" cy="7.4" r=".55" fill="currentColor" stroke="none"/></svg>';
+  '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M2.6 12c2.9-3.5 6.5-5.2 10.4-5.2 3.4 0 6.4 1.4 8.3 3.7l2.1-1.5v6l-2.1-1.5c-1.9 2.3-4.9 3.7-8.3 3.7-3.9 0-7.5-1.7-10.4-5.2Zm6.6-1.1a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Z"/></svg>';
 
 async function activate(ctx) {
   const deps = { ctx };

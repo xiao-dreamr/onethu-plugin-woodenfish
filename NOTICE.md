@@ -1,5 +1,7 @@
 # 电子木鱼公告
 
+- **v0.1.2**：页面 Logo 返工——自绘鱼形图标 + Pacifico wordmark + 上方灰色小字，排版对齐参考页；
+  插件页 tab 图标同步换成同一鱼形。
 - **v0.1.1**：视觉返工——白色鱼形剪影、上方居中巨大功德数字、按压缩放节奏均对齐
   参考实现 [liu-xiyuan/e_woodenfish](https://github.com/liu-xiyuan/e_woodenfish)；
   去掉木槌与飘字；内嵌 Pacifico 字体（`OFL-PACIFICO.txt`）。

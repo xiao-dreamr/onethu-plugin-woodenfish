@@ -94,6 +94,7 @@ xiao-dreamr/onethu-plugin-woodenfish
   [liu-xiyuan/e_woodenfish](https://github.com/liu-xiyuan/e_woodenfish)（原作者页面）；
 - 内嵌字体 **Pacifico**（`OFL-PACIFICO.txt`，SIL Open Font License 1.1）用于 wordmark 与功德数字，
   避免离线环境缺字体导致观感不同；
+- 左上 Logo：参考页的 fa-fish 图标改为自绘小鱼（无外链图标库），wordmark 与上方小字排版对齐参考页；
 - 木鱼音效仍为 WebAudio 实时合成（不打包参考仓库的 mp3），保留插件"单文件、零音频素材"的边界。
 
 ## 架构

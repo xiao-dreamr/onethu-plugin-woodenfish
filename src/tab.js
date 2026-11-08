@@ -59,15 +59,14 @@ const WOODFISH_TAB_CSS = `
   font-weight: 400;
   font-family: "WF Pacifico", "Pacifico", "Brush Script MT", "Segoe Script", "Snell Roundhand", cursive;
 }
-[data-plg="onethu.woodenfish"] .wf-logo-icon { display: flex; width: 1em; height: 1em; margin-right: .3em; }
+[data-plg="onethu.woodenfish"] .wf-logo-icon { display: flex; width: 1em; height: 1em; }
 [data-plg="onethu.woodenfish"] .wf-logo-icon svg { width: 100%; height: 100%; fill: currentColor; }
-[data-plg="onethu.woodenfish"] .wf-logo-text { position: relative; margin-left: .2rem; white-space: nowrap; }
-[data-plg="onethu.woodenfish"] .wf-logo-sub {
-  position: absolute;
-  top: .95rem;
-  left: .3rem;
+[data-plg="onethu.woodenfish"] .wf-logo-text { display: flex; flex-direction: column; align-items: flex-start; margin-left: .7rem; white-space: nowrap; line-height: 1; }
+[data-plg="onethu.woodenfish"] .wf-logo-tag {
+  order: -1;
+  margin: 0 0 .22rem .3rem;
   font-size: .65rem;
-  line-height: .65rem;
+  line-height: 1;
   color: #444;
   font-family: var(--font-ui, "Roboto", system-ui, sans-serif);
   font-weight: 700;
@@ -160,7 +159,7 @@ const WOODFISH_TAB_CSS = `
   [data-plg="onethu.woodenfish"] .wf-root { padding: 1rem; }
   [data-plg="onethu.woodenfish"] .wf-top { align-items: center; }
   [data-plg="onethu.woodenfish"] .wf-logo { align-self: center; font-size: 2rem; }
-  [data-plg="onethu.woodenfish"] .wf-logo-sub { top: .6rem; left: .1rem; font-size: .6rem; line-height: .6rem; }
+  [data-plg="onethu.woodenfish"] .wf-logo-tag { margin: 0 0 .18rem .1rem; font-size: .6rem; }
   [data-plg="onethu.woodenfish"] .wf-score { margin-top: .4rem; }
   [data-plg="onethu.woodenfish"] .wf-actions { margin-top: 1.2rem; }
 }
@@ -174,6 +173,10 @@ const WOODFISH_TAB_CSS = `
 const WOODFISH_PATH = "M 109.12 6.53 C 124.09 4.27 139.37 2.82 154.47 4.79 C 173.07 7.14 191.38 14.02 206.02 25.89 C 217.01 34.77 225.17 46.63 231.55 59.13 C 237.81 72.25 241.16 86.53 243.92 100.74 C 225.49 104.75 206.58 105.76 187.77 106.20 C 186.21 100.02 183.12 93.94 177.74 90.25 C 172.00 85.96 163.98 84.19 157.26 87.18 C 145.99 91.69 139.62 105.22 142.63 116.85 C 145.12 127.39 154.97 136.11 166.05 135.69 C 176.18 134.97 184.61 126.81 187.19 117.22 C 192.74 116.73 198.32 116.63 203.89 116.32 C 217.57 115.26 231.14 113.14 244.82 111.98 C 245.52 121.28 246.13 130.75 244.11 139.94 C 242.32 149.02 239.23 158.07 233.39 165.39 C 224.88 176.55 212.15 183.64 199.01 187.98 C 187.42 191.86 175.20 193.41 163.05 194.29 C 140.40 195.87 117.64 195.62 94.99 194.19 C 74.79 192.81 54.55 190.78 34.79 186.17 C 27.91 184.54 21.07 182.47 14.77 179.21 C 8.58 175.93 4.23 169.71 2.72 162.92 C -0.48 151.41 3.00 139.09 9.20 129.21 C 14.61 119.75 27.61 116.88 30.81 105.83 C 35.50 90.01 37.28 73.40 42.87 57.82 C 47.56 45.36 54.34 33.26 64.82 24.75 C 77.25 14.19 93.24 9.04 109.12 6.53 Z";
 
 const WOODFISH_SVG = `<svg viewBox="0 0 247 197" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="${WOODFISH_PATH}"/></svg>`;
+
+/* 左上 Logo 的鱼形图标（参考页用 FontAwesome 的 fa-fish；这里自绘同语义的小鱼，避免外链图标库）。
+   眼睛用 mask 挖空，图标在深色页与浅色宿主标题栏上都不依赖背景色。 */
+const WOODFISH_LOGO_FISH = `<svg viewBox="0 0 24 24" aria-hidden="true"><defs><mask id="wf-logo-eye"><rect width="24" height="24" fill="#fff"/><circle cx="9.2" cy="10.9" r="1.05" fill="#000"/></mask></defs><path fill="currentColor" mask="url(#wf-logo-eye)" d="M2.6 12c2.9-3.5 6.5-5.2 10.4-5.2 3.4 0 6.4 1.4 8.3 3.7l2.1-1.5v6l-2.1-1.5c-1.9 2.3-4.9 3.7-8.3 3.7-3.9 0-7.5-1.7-10.4-5.2Z"/></svg>`;
 
 function wfEl(tag, className, text) {
   const node = document.createElement(tag);
@@ -232,10 +235,10 @@ function createWoodfishTab(deps) {
     logo.type = "button";
     logo.setAttribute("aria-label", "电子木鱼：开关音效");
     const logoIcon = wfEl("span", "wf-logo-icon");
-    logoIcon.innerHTML = WOODFISH_SVG;
+    logoIcon.innerHTML = WOODFISH_LOGO_FISH;
     const logoText = wfEl("span", "wf-logo-text");
-    const logoSub = wfEl("span", "wf-logo-sub", "敲电子木鱼，取赛博真经");
-    logoText.append(document.createTextNode("woodenfish"), logoSub);
+    const logoTag = wfEl("span", "wf-logo-tag", "敲电子木鱼 · 取赛博真经");
+    logoText.append(document.createTextNode("woodenfish"), logoTag);
     logo.append(logoIcon, logoText);
 
     const score = wfEl("div", "wf-score");
