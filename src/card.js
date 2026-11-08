@@ -16,26 +16,25 @@ export const WOODFISH_CARD_ICON = "🐟";
 
 /** 卡片外观（宿主壳 + 本插件作用域）。数据属性由宿主渲染壳写上。 */
 export const WOODFISH_CARD_CSS = `
-[data-plugin-action="onethu.woodenfish:main"] {
-  background:
-    radial-gradient(130% 120% at 28% 12%, #fff8ea 0%, #f4dda9 52%, #e3bd7c 100%);
-  color: #5a3714;
-  box-shadow: inset 0 0 0 1px rgba(122, 74, 26, .22), 0 10px 22px rgba(96, 60, 18, .16);
+/* 与参考实现一致的白色鱼形剪影；深色卡面 + 灰白状态字 */
+.plugin-action-card[data-plugin-action="onethu.woodenfish:main"] {
+  background: #111;
+  color: #eee;
+  box-shadow: inset 0 0 0 1px #2a2a2a, 0 10px 22px rgba(0, 0, 0, .35);
 }
-[data-plugin-action="onethu.woodenfish:main"] .pac-status { color: #8a5a1e; letter-spacing: .2px; }
-/* 用内联 SVG 画木鱼，避免依赖系统 emoji 字体（Linux 预览/旧 WebView 里 emoji 会变豆腐块） */
-[data-plugin-action="onethu.woodenfish:main"] .pac-icon {
+.plugin-action-card[data-plugin-action="onethu.woodenfish:main"] .pac-status { color: #eee; letter-spacing: .2px; }
+.plugin-action-card[data-plugin-action="onethu.woodenfish:main"] .pac-icon {
   display: block;
-  width: 66%;
-  height: 60%;
+  width: 74%;
+  height: 62%;
   font-size: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cellipse cx='25' cy='30' rx='20' ry='11' fill='%23e0b978' stroke='%238a5a24' stroke-width='2'/%3E%3Cpath d='M9 29 Q25 20 41 29' fill='none' stroke='%238a5a24' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M13 34 Q25 28 37 34' fill='none' stroke='%23c99a55' stroke-width='1.5' stroke-linecap='round' opacity='.8'/%3E%3Ccircle cx='16.5' cy='27' r='1.8' fill='%235b3712'/%3E%3Cpath d='M44 30 q5 -5 8 -2 q-3 3 -8 3 Z' fill='%23c99a55' stroke='%238a5a24' stroke-width='1.3'/%3E%3Crect x='34' y='6' width='4' height='16' rx='2' fill='%237d4f1d' transform='rotate(18 36 14)'/%3E%3Crect x='30' y='2' width='12' height='7' rx='3.5' fill='%238a5a24' transform='rotate(18 36 5)'/%3E%3C/svg%3E") center / contain no-repeat;
-  filter: drop-shadow(0 8px 10px rgba(104, 64, 20, .24));
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20247%20197%22%3E%3Cpath%20fill%3D%22%23eee%22%20d%3D%22M%20109.12%206.53%20C%20124.09%204.27%20139.37%202.82%20154.47%204.79%20C%20173.07%207.14%20191.38%2014.02%20206.02%2025.89%20C%20217.01%2034.77%20225.17%2046.63%20231.55%2059.13%20C%20237.81%2072.25%20241.16%2086.53%20243.92%20100.74%20C%20225.49%20104.75%20206.58%20105.76%20187.77%20106.20%20C%20186.21%20100.02%20183.12%2093.94%20177.74%2090.25%20C%20172.00%2085.96%20163.98%2084.19%20157.26%2087.18%20C%20145.99%2091.69%20139.62%20105.22%20142.63%20116.85%20C%20145.12%20127.39%20154.97%20136.11%20166.05%20135.69%20C%20176.18%20134.97%20184.61%20126.81%20187.19%20117.22%20C%20192.74%20116.73%20198.32%20116.63%20203.89%20116.32%20C%20217.57%20115.26%20231.14%20113.14%20244.82%20111.98%20C%20245.52%20121.28%20246.13%20130.75%20244.11%20139.94%20C%20242.32%20149.02%20239.23%20158.07%20233.39%20165.39%20C%20224.88%20176.55%20212.15%20183.64%20199.01%20187.98%20C%20187.42%20191.86%20175.20%20193.41%20163.05%20194.29%20C%20140.40%20195.87%20117.64%20195.62%2094.99%20194.19%20C%2074.79%20192.81%2054.55%20190.78%2034.79%20186.17%20C%2027.91%20184.54%2021.07%20182.47%2014.77%20179.21%20C%208.58%20175.93%204.23%20169.71%202.72%20162.92%20C%20-0.48%20151.41%203.00%20139.09%209.20%20129.21%20C%2014.61%20119.75%2027.61%20116.88%2030.81%20105.83%20C%2035.50%2090.01%2037.28%2073.40%2042.87%2057.82%20C%2047.56%2045.36%2054.34%2033.26%2064.82%2024.75%20C%2077.25%2014.19%2093.24%209.04%20109.12%206.53%20Z%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 0 10px rgba(238, 238, 238, .10));
 }
-[data-plugin-action="onethu.woodenfish:main"] .pac-title { color: #7a4a1a; opacity: .85; }
-[data-plugin-action="onethu.woodenfish:main"]:active .pac-icon { filter: drop-shadow(0 3px 4px rgba(104,64,20,.28)); }
+.plugin-action-card[data-plugin-action="onethu.woodenfish:main"] .pac-title { color: #777; opacity: 1; }
+.plugin-action-card[data-plugin-action="onethu.woodenfish:main"]:active .pac-icon { filter: drop-shadow(0 0 6px rgba(238, 238, 238, .18)); }
 @media (prefers-reduced-motion: reduce) {
-  [data-plugin-action="onethu.woodenfish:main"] .pac-icon { animation: none; }
+  .plugin-action-card[data-plugin-action="onethu.woodenfish:main"] .pac-icon { animation: none; }
 }
 `;
 

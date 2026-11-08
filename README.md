@@ -4,11 +4,14 @@
 > 插件 id `onethu.woodenfish` · 娱乐向 · 无联网、无数据上传。
 >
 > 仓库：<https://github.com/xiao-dreamr/onethu-plugin-woodenfish>
+> 视觉与交互参考：[liu-xiyuan/e_woodenfish](https://github.com/liu-xiyuan/e_woodenfish)
+> （白色鱼形剪影、上方居中大计数、按压缩放节奏均对齐参考实现；字体 Pacifico 见 `OFL-PACIFICO.txt`）
 
 一个纯娱乐插件：在 OneTHU 里敲木鱼攒「功德」。两种敲法：
 
-1. **插件页「电子木鱼」**：整页就是一只大木鱼，点一下 → 功德 +1、木鱼弹一下、
-   飘一个 +1、播一声木质「咚」；**上方中间**显示功德总量（另有今日计数与二进制彩蛋）。
+1. **插件页「电子木鱼」**：与参考页同款的深色极简页面——**上方正中**巨大功德数字 +
+   灰色「功德」；中间一条白色鱼形剪影；点一下（或按 Space）→ 功德 +1、播一声木质「咚」，
+   同时数字 scale(1.1)、木鱼 scale(.99)，松开回弹（`cubic-bezier(.5,.35,.15,1.4)`）。
    页面可停靠到**首页一级功能区**，也会出现在 **OneShot / 更多功能**的候选里。
 2. **白板交互卡片**：把木鱼放到首页或任意 OnePage 白板，点一下功德 +1，
    卡片左上角实时显示 `功德 N`（数据来自插件自己的 `status` 命令）。
@@ -84,6 +87,14 @@ xiao-dreamr/onethu-plugin-woodenfish
 | `css` | 插件页与卡片的作用域样式 |
 
 不申请 `net:external`、不读课程/账号数据；`reset` 需要二次确认。
+
+## 视觉与交互来源
+
+- 布局/配色/按压节奏/鱼形 SVG path 直接对齐参考仓库
+  [liu-xiyuan/e_woodenfish](https://github.com/liu-xiyuan/e_woodenfish)（原作者页面）；
+- 内嵌字体 **Pacifico**（`OFL-PACIFICO.txt`，SIL Open Font License 1.1）用于 wordmark 与功德数字，
+  避免离线环境缺字体导致观感不同；
+- 木鱼音效仍为 WebAudio 实时合成（不打包参考仓库的 mp3），保留插件"单文件、零音频素材"的边界。
 
 ## 架构
 

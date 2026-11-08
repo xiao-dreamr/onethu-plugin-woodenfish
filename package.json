@@ -1,6 +1,6 @@
 {
-  "name": "woodenfish",
-  "version": "0.1.0",
+  "name": "onethu-plugin-woodenfish",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "OneTHU 插件：电子木鱼（敲电子木鱼，取赛博真经）——插件页 + 白板交互卡片",

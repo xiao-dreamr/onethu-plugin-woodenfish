@@ -21,7 +21,7 @@ import { WOODFISH_PAGE_KEY } from "./page.js";
 const manifest = {
   id: "onethu.woodenfish",
   name: "电子木鱼 · 赛博真经",
-  version: "0.1.0",
+  version: "0.1.1",
   kind: "js",
   entry: "plugin.js",
   author: "xiao-dreamr",
