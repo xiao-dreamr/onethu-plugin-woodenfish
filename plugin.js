@@ -505,6 +505,7 @@ function buildCommandList(deps) {
     {
       id: "tap",
       title: "敲电子木鱼（功德 +1；输入数字可连敲 N 下）",
+      agentHint: "用户要敲木鱼/积功德时调用；输入数字可连敲，空=1 下。",
       inputLabel: "敲几下（可空，默认 1）",
       inputPlaceholder: "例如：10",
       run: (input) => runTapCommand(deps, input),
@@ -512,24 +513,28 @@ function buildCommandList(deps) {
     {
       id: "status",
       title: "查看当前功德总量（今日/累计）",
+      agentHint: "用户询问功德/今日敲击次数时调用；只读。",
       inputLabel: "无需输入",
       run: () => runStatusCommand(deps),
     },
     {
       id: "verse",
       title: "抽一句赛博真经",
+      agentHint: "用户要随机抽一句木鱼真经/文案时调用；不改变功德。",
       inputLabel: "无需输入",
       run: () => runVerseCommand(),
     },
     {
       id: "sound",
       title: "开/关木鱼音效",
+      agentHint: "用户要静音或恢复木鱼音效时调用；切换全局音效开关。",
       inputLabel: "无需输入",
       run: () => runSoundCommand(deps),
     },
     {
       id: "board",
       title: "把电子木鱼放到首页/OnePage 白板（可选 boardId）",
+      agentHint: "用户要把木鱼实体放到白板时调用；boardId 空=首页系统板。",
       inputLabel: "boardId（可空=首页）",
       inputPlaceholder: "可空；或 onePageList() 里的 boardId",
       run: (input) => runBoardCommand(deps, input),
@@ -543,6 +548,7 @@ function buildCommandList(deps) {
     {
       id: "dock",
       title: "把电子木鱼放到首页一级功能区（或在新宿主 OneShot 里选它）",
+      agentHint: "用户要把木鱼停靠到首页一级功能区时调用。",
       inputLabel: "无需输入",
       run: () => runDockCommand(deps, true),
     },
@@ -555,6 +561,7 @@ function buildCommandList(deps) {
     {
       id: "reset",
       title: "清空功德（会先向用户确认）",
+      agentHint: "仅在用户明确要求清空功德时调用；命令内部会二次确认。",
       inputLabel: "无需输入",
       run: () => runResetCommand(deps),
     },
